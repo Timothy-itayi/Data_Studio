@@ -1,105 +1,69 @@
-# Data_Studio
-S3
-# 🧪📊 Data Studio Lite 
+# 🧠 Data Studio Lite 
 
-(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ A lightweight backend microservice for data lovers and tinkerers!  
-Ingest messy public datasets → Clean them → Expose powerful APIs → Generate beautiful PDF reports.  
-Your portable API for exploring the world through data. 🚀
+*( ˘ω˘ )✧ Backend API meets AI insight.*
 
 ---
 
-## 🌟 Project Goals
+## 🎯 Project Overview
 
-(`･ω･´)ゞ Prove backend craftsmanship with a real-world data flow:
-- Ingest messy **CSV/JSON datasets**
-- Clean + normalize into **DynamoDB**
-- Expose a robust, queryable **REST API**
-- Export filtered data into **PDF reports** 🖨️
-
----
-## 🎯 Use Case
-
-Imagine uploading a dataset of Formula 1 results...  
-Then calling:
-
-GET /data?season=2023&podium=true
-GET /report?season=2023&podium=true
-
-
-
-And receiving:
-- 📄 A clean JSON response of all podium finishers
-- 📄 A beautifully formatted PDF report of the same data, ready to share
-
-ヽ(・∀・)ﾉ✨✨✨
+**Data Studio Lite** is a minimalist backend app that ingests preloaded datasets and exposes them through clean, queryable API endpoints. It also integrates a lightweight local AI model to analyze and summarize dataset content on demand. Perfect for showcasing backend craftsmanship + data intuition!
 
 ---
 
-## 🧩 Core Features
+## 💡 Why?
+
+(；・∀・) “Why is working with public data such a pain!?”
+
+Because it’s messy, unstructured, and inconsistent.  
+**This app fixes that by doing the hard work upfront**, providing:
+
+- Filterable, sortable, and paginated REST endpoints
+- Pre-cleaned datasets ready to use
+- An AI interface for asking questions and getting summaries
+
+---
+
+## 🛠️ Core Features
 
 | Feature | Description |
 |--------|-------------|
-| 📂 Dataset Upload | Upload CSV/JSON files via HTML form or API (S3-backed) |
-| ⚙️ Lambda Ingestion | AWS Lambda cleans and stores data in DynamoDB |
-| 🔍 Query API (`/data`) | Filter, sort, paginate dataset results |
-| 📊 Stats API (`/stats`) | Grouped stats and aggregations |
-| 🖨️ PDF Report API (`/report`) | Export filtered results to PDF |
-| 🧾 Logs | Log query metadata for insights and performance tuning |
+| `/data` | Get filtered records from a selected dataset |
+| `/stats` | Grouped stats (e.g. counts, averages by category) |
+| `/analyze` | Ask the AI to describe the dataset or answer natural language questions |
+| `/metadata` | Get available dataset info and schema hints |
 
 ---
 
-## 🛠️ Tech Stack
+## 🔧 Tech Stack
 
-- ☁️ **AWS S3** — store raw datasets
-- ⚡ **AWS Lambda** — ingest and clean data
-- 🗃️ **DynamoDB** — fast and flexible data storage
-- 🌐 **Node.js + Express** — REST API
-- 📄 **pdfmake** / **puppeteer** — PDF report generation
-- 💻 **HTML + JavaScript** — for simple upload frontend
-
----
-
-## 🚧 Roadmap (Shape Up Method)
-
-**Appetite**: 6 weeks  
-**Core Slice**:
-- [x] Upload 1 public dataset
-- [x] Clean + store in DynamoDB
-- [x] Query via `/data` with filters/sort/pagination
-- [x] Export results to PDF via `/report`
-
-**Nice-to-Haves** (Scope Hammered 🧠🔨):
-- [ ] Multiple datasets
-- [ ] Swagger/OpenAPI docs
-- [ ] Stats endpoint (`/stats`)
-- [ ] Visual dashboard integration
+- **Node.js + Express** – API server
+- **JavaScript (Vanilla)** – Frontend
+- **HTML/CSS** – UI shell
+- **Python (`llama-cpp-python`)** – Embedded local LLM
+- **CSV / JSON** – Input format for datasets
+- **EC2 or Docker** – Deployment target
 
 ---
 
-## 🧪 Example Dataset Ideas
+## 🤖 AI Integration
 
-- 🏎️ Formula 1 race results  
-- ☕ Global coffee shop locations  
-- 🌏 Earthquake data from USGS  
-- 🚌 Public transit stops  
-- 🎶 Billboard music charts  
+(＾• ω •＾) The app includes a lightweight AI engine to:
 
-ヽ(•‿•)ノ Pick one and explore!
+- Summarize the structure of a dataset
+- Suggest meaningful queries
+- Answer user questions in natural language
 
----
-
-
-
-## ✨ Credits
-
-Built with ☕, curiosity, and backend love by [Timothy_Itayi] (｡♥‿♥｡)
+Powered by open-source models like **LLaMA** or **Mistral**, run locally via `llama-cpp`.
 
 ---
 
-## 🏁 Let’s Go!
+## 🚀 Getting Started
 
-Upload your dataset
-Watch it get cleaned
-Query and export it like a pro!
+```bash
+git clone https://github.com/yourname/data-studio-lite.git
+cd data-studio-lite
 
-(っ＾▿＾)۶🍸🌟🍺٩(˘◡˘ )
+npm install        # Set up backend
+pip install llama-cpp-python  # (In a Python venv)
+
+node server/index.js
