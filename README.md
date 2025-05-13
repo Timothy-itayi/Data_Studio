@@ -88,18 +88,7 @@ And receiving:
 
 ---
 
-## 📁 Directory Structure
 
-data-studio-lite/
-├── api/ # Node.js Express app
-│ ├── routes/ # /data, /report, etc.
-│ └── utils/ # Query parsing, PDF generation
-├── lambda/ # Ingest + clean uploaded datasets
-├── public/ # HTML upload interface (optional)
-├── scripts/ # One-time setup tools
-└── README.md
-
----
 
 ## ✨ Credits
 
