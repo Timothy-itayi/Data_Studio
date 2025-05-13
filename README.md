@@ -60,10 +60,9 @@ Powered by open-source models like **LLaMA** or **Mistral**, run locally via `ll
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/yourname/data-studio-lite.git
-cd data-studio-lite
-
+git clone https://github.com/yourname/Data_Studio.git
+cd Data_Studio
 npm install        # Set up backend
 pip install llama-cpp-python  # (In a Python venv)
 
-node server/index.js
+node server/index.js 
