@@ -1,68 +1,81 @@
-# 🧠 Data Studio Lite 
+# 🎯 Data Studio Lite: Sports Odds API
 
-*( ˘ω˘ )✧ Backend API meets AI insight.*
-
----
-
-## 🎯 Project Overview
-
-**Data Studio Lite** is a minimalist backend app that ingests preloaded datasets and exposes them through clean, queryable API endpoints. It also integrates a lightweight local AI model to analyze and summarize dataset content on demand. Perfect for showcasing backend craftsmanship + data intuition!
+> 🏈 A backend-only app that fetches **live and upcoming games** with real-time **sports odds**, filters by region and market, and allows users to **lock and store picks** via AWS S3. Designed for dev-mode API craftsmanship and clean backend architecture. (≧◡≦)
 
 ---
 
-## 💡 Why?
+## 📦 What This Project Does
 
-(；・∀・) “Why is working with public data such a pain!?”
-
-Because it’s messy, unstructured, and inconsistent.  
-**This app fixes that by doing the hard work upfront**, providing:
-
-- Filterable, sortable, and paginated REST endpoints
-- Pre-cleaned datasets ready to use
-- An AI interface for asking questions and getting summaries
+- ⚡️ Fetches real-time **sports game data** with odds via RapidAPI
+- 🔍 Filters by **region** (e.g., US) and **markets** (e.g., h2h, spreads)
+- 🔐 Stores **user "locks"** (picks) in AWS S3
+- 🧠 Extensible for odds stats, user dashboards, or AI-powered predictions later!
 
 ---
 
-## 🛠️ Core Features
+## 🧪 Current API Endpoints
 
-| Feature | Description |
-|--------|-------------|
-| `/data` | Get filtered records from a selected dataset |
-| `/stats` | Grouped stats (e.g. counts, averages by category) |
-| `/analyze` | Ask the AI to describe the dataset or answer natural language questions |
-| `/metadata` | Get available dataset info and schema hints |
-
----
-
-## 🔧 Tech Stack
-
-- **Node.js + Express** – API server
-- **JavaScript (Vanilla)** – Frontend
-- **HTML/CSS** – UI shell
-- **Python (`llama-cpp-python`)** – Embedded local LLM
-- **CSV / JSON** – Input format for datasets
-- **EC2 or Docker** – Deployment target
+| Method | Route          | Description |
+|--------|----------------|-------------|
+| `GET`  | `/games`       | Fetch upcoming games with odds |
+| `POST` | `/locks`       | Save a user’s pick (lock) to S3 |
+| `GET`  | `/locks/:id`   | Retrieve a user’s stored locks |
 
 ---
 
-## 🤖 AI Integration
-
-(＾• ω •＾) The app includes a lightweight AI engine to:
-
-- Summarize the structure of a dataset
-- Suggest meaningful queries
-- Answer user questions in natural language
-
-Powered by open-source models like **LLaMA** or **Mistral**, run locally via `llama-cpp`.
-
----
-
-## 🚀 Getting Started
+## 🌍 Sample API Usage
 
 ```bash
-git clone https://github.com/yourname/Data_Studio.git
-cd Data_Studio
-npm install        # Set up backend
-pip install llama-cpp-python  # (In a Python venv)
+GET /games?region=us&markets=h2h,spreads
+Returns:
 
-node server/index.js 
+json
+Copy
+Edit
+[
+  {
+    "id": "abc123",
+    "sport_title": "NFL",
+    "home_team": "Houston Texans",
+    "away_team": "Kansas City Chiefs",
+    "bookmakers": [
+      {
+        "title": "DraftKings",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              { "label": "Houston Texans", "price": 2.23 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+🛠️ Tech Stack
+🌐 Node.js + Express
+
+☁️ AWS S3 (for storing user picks)
+
+🔗 RapidAPI Sports Odds
+
+📁 JSON dataset support (in dev mode)
+
+🧪 Dev-mode only (no production deployment planned)
+
+🎯 Project Vision
+Help developers or analysts explore niche datasets (in this case, sports data) via well-designed backend APIs. Simple, effective, and built with production-quality patterns — but dev-only. (＾▽＾)
+
+📌 Future Ideas
+🧠 AI (LLaMA or Claude) integration to analyze pick trends
+
+📊 /stats endpoint for grouped insights
+
+🧼 Webhook support for odds refresh
+
+🧱 DynamoDB lock index (to prevent duplicate bets)
+
+🚧 Development Status
+🧪 In active development. This project is a backend design showcase and will remain in dev mode. Production efforts will shift to a full-stack version later.  (ง'̀-'́)ง
+=======
