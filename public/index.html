@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Odds Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-blue-600 text-white shadow-lg">
+            <div class="container mx-auto px-4 py-6">
+                <h1 class="text-3xl font-bold">Sports Odds Dashboard</h1>
+                <p class="text-blue-100 mt-2">Real-time odds and game information</p>
+            </div>
+        </header>
+
+        <!-- Filters -->
+        <div class="container mx-auto px-4 py-6">
+            <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex-1 min-w-[200px]">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Region</label>
+                        <select id="region" class="w-full border rounded-md py-2 px-3">
+                            <option value="us">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="eu">Europe</option>
+                        </select>
+                    </div>
+                    <div class="flex-1 min-w-[200px]">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Markets</label>
+                        <select id="markets" class="w-full border rounded-md py-2 px-3">
+                            <option value="h2h">Head to Head</option>
+                            <option value="spreads">Spreads</option>
+                            <option value="h2h,spreads">Both</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button id="refresh" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
+                            Refresh Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games Grid -->
+        <div class="container mx-auto px-4 pb-8">
+            <div id="games-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Games will be inserted here dynamically -->
+                <div class="animate-pulse bg-white rounded-lg shadow-md p-6">
+                    <div class="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+                    <div class="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
+                    <div class="h-4 bg-gray-200 rounded w-1/4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
