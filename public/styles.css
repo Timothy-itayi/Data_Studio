@@ -1,0 +1,22 @@
+.game-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+}
+
+.odds-value {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+} 
