@@ -1,12 +1,13 @@
 {
   "name": "data_studio",
   "version": "1.0.0",
-  "description": "S3",
-  "main": "script.js",
+  "description": "Sports Odds Dashboard",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,10 +20,14 @@
   },
   "homepage": "https://github.com/Timothy-itayi/Data_Studio#readme",
   "dependencies": {
-    "axios": "^1.9.0",
     "cors": "^2.8.5",
     "csv-parser": "^3.2.0",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^4.17.1",
+    "node-fetch": "^3.3.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
