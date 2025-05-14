@@ -1,116 +1,80 @@
-# Data_Studio
-S3
-# 🧪📊 Data Studio Lite 
+# 🎯 Data Studio Lite: Sports Odds API
 
-(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ A lightweight backend microservice for data lovers and tinkerers!  
-Ingest messy public datasets → Clean them → Expose powerful APIs → Generate beautiful PDF reports.  
-Your portable API for exploring the world through data. 🚀
+> 🏈 A backend-only app that fetches **live and upcoming games** with real-time **sports odds**, filters by region and market, and allows users to **lock and store picks** via AWS S3. Designed for dev-mode API craftsmanship and clean backend architecture. (≧◡≦)
 
 ---
 
-## 🌟 Project Goals
+## 📦 What This Project Does
 
-(`･ω･´)ゞ Prove backend craftsmanship with a real-world data flow:
-- Ingest messy **CSV/JSON datasets**
-- Clean + normalize into **DynamoDB**
-- Expose a robust, queryable **REST API**
-- Export filtered data into **PDF reports** 🖨️
-
----
-## 🎯 Use Case
-
-Imagine uploading a dataset of Formula 1 results...  
-Then calling:
-
-GET /data?season=2023&podium=true
-GET /report?season=2023&podium=true
-
-
-
-And receiving:
-- 📄 A clean JSON response of all podium finishers
-- 📄 A beautifully formatted PDF report of the same data, ready to share
-
-ヽ(・∀・)ﾉ✨✨✨
+- ⚡️ Fetches real-time **sports game data** with odds via RapidAPI
+- 🔍 Filters by **region** (e.g., US) and **markets** (e.g., h2h, spreads)
+- 🔐 Stores **user "locks"** (picks) in AWS S3
+- 🧠 Extensible for odds stats, user dashboards, or AI-powered predictions later!
 
 ---
 
-## 🧩 Core Features
+## 🧪 Current API Endpoints
 
-| Feature | Description |
-|--------|-------------|
-| 📂 Dataset Upload | Upload CSV/JSON files via HTML form or API (S3-backed) |
-| ⚙️ Lambda Ingestion | AWS Lambda cleans and stores data in DynamoDB |
-| 🔍 Query API (`/data`) | Filter, sort, paginate dataset results |
-| 📊 Stats API (`/stats`) | Grouped stats and aggregations |
-| 🖨️ PDF Report API (`/report`) | Export filtered results to PDF |
-| 🧾 Logs | Log query metadata for insights and performance tuning |
+| Method | Route          | Description |
+|--------|----------------|-------------|
+| `GET`  | `/games`       | Fetch upcoming games with odds |
+| `POST` | `/locks`       | Save a user’s pick (lock) to S3 |
+| `GET`  | `/locks/:id`   | Retrieve a user’s stored locks |
 
 ---
 
-## 🛠️ Tech Stack
+## 🌍 Sample API Usage
 
-- ☁️ **AWS S3** — store raw datasets
-- ⚡ **AWS Lambda** — ingest and clean data
-- 🗃️ **DynamoDB** — fast and flexible data storage
-- 🌐 **Node.js + Express** — REST API
-- 📄 **pdfmake** / **puppeteer** — PDF report generation
-- 💻 **HTML + JavaScript** — for simple upload frontend
+```bash
+GET /games?region=us&markets=h2h,spreads
+Returns:
 
----
+json
+Copy
+Edit
+[
+  {
+    "id": "abc123",
+    "sport_title": "NFL",
+    "home_team": "Houston Texans",
+    "away_team": "Kansas City Chiefs",
+    "bookmakers": [
+      {
+        "title": "DraftKings",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              { "label": "Houston Texans", "price": 2.23 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+🛠️ Tech Stack
+🌐 Node.js + Express
 
-## 🚧 Roadmap (Shape Up Method)
+☁️ AWS S3 (for storing user picks)
 
-**Appetite**: 6 weeks  
-**Core Slice**:
-- [x] Upload 1 public dataset
-- [x] Clean + store in DynamoDB
-- [x] Query via `/data` with filters/sort/pagination
-- [x] Export results to PDF via `/report`
+🔗 RapidAPI Sports Odds
 
-**Nice-to-Haves** (Scope Hammered 🧠🔨):
-- [ ] Multiple datasets
-- [ ] Swagger/OpenAPI docs
-- [ ] Stats endpoint (`/stats`)
-- [ ] Visual dashboard integration
+📁 JSON dataset support (in dev mode)
 
----
+🧪 Dev-mode only (no production deployment planned)
 
-## 🧪 Example Dataset Ideas
+🎯 Project Vision
+Help developers or analysts explore niche datasets (in this case, sports data) via well-designed backend APIs. Simple, effective, and built with production-quality patterns — but dev-only. (＾▽＾)
 
-- 🏎️ Formula 1 race results  
-- ☕ Global coffee shop locations  
-- 🌏 Earthquake data from USGS  
-- 🚌 Public transit stops  
-- 🎶 Billboard music charts  
+📌 Future Ideas
+🧠 AI (LLaMA or Claude) integration to analyze pick trends
 
-ヽ(•‿•)ノ Pick one and explore!
+📊 /stats endpoint for grouped insights
 
----
+🧼 Webhook support for odds refresh
 
-## 📁 Directory Structure
+🧱 DynamoDB lock index (to prevent duplicate bets)
 
-data-studio-lite/
-├── api/ # Node.js Express app
-│ ├── routes/ # /data, /report, etc.
-│ └── utils/ # Query parsing, PDF generation
-├── lambda/ # Ingest + clean uploaded datasets
-├── public/ # HTML upload interface (optional)
-├── scripts/ # One-time setup tools
-└── README.md
-
----
-
-## ✨ Credits
-
-Built with ☕, curiosity, and backend love by [Timothy_Itayi] (｡♥‿♥｡)
-
----
-
-## 🏁 Let’s Go!
-
-Upload your dataset
-Watch it get cleaned
-Query and export it like a pro!
-
-(っ＾▿＾)۶🍸🌟🍺٩(˘◡˘ )
+🚧 Development Status
+🧪 In active development. This project is a backend design showcase and will remain in dev mode. Production efforts will shift to a full-stack version later.  (ง'̀-'́)ง
